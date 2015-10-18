@@ -23,13 +23,18 @@ var _header_smaler = 1;
       
 
        if(window.pageYOffset>60){
+          
           header_smaller();
+          
           // sidabar left pharalax effect
-          $('#sidebar').css({'position':'relative','top': ( window.pageYOffset * 0.8 ) - (60 * 0.8)}); 
-          //$('#sidebar-left #sidebar').css({'margin-bottom': ( window.pageYOffset * 0.6 ) - (60*0.6)}); 
+          //$('#sidebar').css({'position':'relative','top': ( window.pageYOffset * 0.8 ) - (60 * 0.8)}); 
+
        }else{
-          $('#sidebar').css({'position':'relative','top': 0}); 
+          
           header_bigger(); 
+
+          // sidabar left pharalax effect
+          //$('#sidebar').css({'position':'relative','top': 0}); 
          
        }
 
