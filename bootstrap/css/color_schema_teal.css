@@ -1,0 +1,29 @@
+/* teal */
+a{
+	color:#00695C;
+}
+a:hover{
+	color:#004D40
+}
+#masthead .site-title a{
+	color:#e0f2f1;
+}
+#masthead{
+	background-color: #4DB6AC;
+	border-bottom: 1px solid #048373;
+	color: #e0f2f1;
+}
+.site-footer{
+	background-color: #00695c;
+	color:#fff;
+}
+.site-footer a{
+	color:#e0f2f1;
+}
+.widget .table tr td a{
+	background-color: #e0f2f1;
+}
+.widget .current-cat{
+	background-color: #e0f2f1;
+	outline: #e0f2f1 solid 4px;
+}

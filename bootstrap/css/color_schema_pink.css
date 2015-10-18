@@ -1,0 +1,26 @@
+/* pink */
+a{
+	color:#AD1457;
+}
+a:hover{
+	color:#C2185B
+}
+#masthead .site-title a, .site-footer a{
+	color:#FCE4EC;
+}
+#masthead .site-description{
+	color:#F8BBD0;
+}
+#masthead{
+	background-color: #EC407A;   
+	border-bottom: 1px solid #C2185B;
+	color: #ECEFF1;
+}
+.site-footer{
+	background-color: #E91E63;
+	color:#fff;
+}
+.widget .table tr td a, .widget .current-cat{
+	background-color: #FCE4EC;
+	outline: #FCE4EC solid 4px;
+}

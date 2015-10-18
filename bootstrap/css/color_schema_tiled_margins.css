@@ -1,0 +1,21 @@
+/* material article */
+.post-wraper{
+	background-color:rgba(255,255,255,0.9);
+	margin-top:4px;
+}
+#main-sidebar ul{
+	background-color:rgba(255,255,255,0.9)
+}
+
+
+.page article, .single article{
+	background-color:#fff;
+	box-shadow: 0px 0px 4px #D8D8D8;
+	margin-top:60px;
+}
+
+#main-sidebar ul .widget-title{
+	margin-top:0px;
+	padding-top:10px;
+	margin-bottom:5px;
+}
