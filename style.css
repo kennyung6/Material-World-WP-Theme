@@ -1,0 +1,230 @@
+/*
+Theme Name: wpmice
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0-wpcom
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: wpmice
+Domain Path: /languages/
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+ wpmice is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+
+/*--------------------------------------------------------------
+Insert your presentation styles below
+--------------------------------------------------------------*/
+/* normalize */
+ul{
+	padding:0;
+}
+.row {
+	margin-left:0;
+	margin-right:0;
+}
+#sidebar-left{
+	background-color: #fff;
+}
+
+/*-------------------------------------------------------------- */
+/* header dimentions */
+.site-branding{	
+	margin-top:21px;
+	margin-bottom:17px;
+}
+.site-title{
+	font-size: 22px;
+	margin-top: 11px;
+	margin-bottom: 0px;
+}
+.site-description{
+	font-size: 13px;
+	margin-top: 3px;
+	margin-bottom: 0px;
+}
+
+/*-------------------------------------------------------------- */
+/* navbars */
+.site-header-nav .nav-tabs{ 
+	/* text-align: center; */
+}
+.site-header-nav nav ul li {
+	display: inline-block; 
+	float:none;
+}
+
+/* colorized navbars */
+.site-header-nav nav ul li a{
+	color: #C5CAE9;
+	-webkit-box-shadow: inset 0 -4px 0 #ddd;
+}
+.site-header-nav nav ul li a:hover{
+	color: #E8EAF6;
+	-webkit-box-shadow: inset 0 -6px 0 #fff;
+	text-decoration: none;
+}
+.site-header-nav nav ul li.active a{
+	color: #fff;
+}
+
+/*-------------------------------------------------------------- */
+/* PAGE AND SINGLE */
+article{
+	text-align: center;	
+	padding-bottom: 60px;
+}
+.entry-title{
+	font-size:32px;
+	font-weight:100;
+	letter-spacing:2px;
+	text-shadow: 0px 0px 3px #ddd;
+	-webkit-font-smoothing: antialiased;
+}
+.site-main .page-header{
+	margin:0;
+	padding:0;
+	text-align: center;
+	background-color: rgba(194, 24, 91, 0.2);
+}
+.site-main .page-header .page-title{
+	font-size:18px;
+	margin:0px;
+	padding-top:33px;
+	padding-bottom:14px;
+	font-weight: 100;
+}
+.top-article-decorator{
+	width:50%;
+	height:80px; 
+	border-right: 1px solid #eee;
+}
+.pagination-wrap{
+	text-align: center;
+}
+.byline{
+	display:none;
+}
+time.updated{
+	display:none;
+}
+.continue-reading{
+	margin-top:20px;
+}
+/* for Page and Post only */
+.page .entry-content, .single .entry-content{
+	margin-top:30px;
+	font-size:16px;	
+	padding: 40px 60px;
+}
+
+
+
+/*-------------------------------------------------------------- */
+/* FOOTER */
+footer .site-info{
+	padding:10px;
+}
+
+/*-------------------------------------------------------------- */
+/* widgets */
+.widget .widget-title{
+	/* padding:0px 35px; */
+	font-size:18px;
+	line-height:46px;	
+	margin-top:10px;
+	color:#333;
+	margin-bottom:0px;
+	font-weight: 100;
+	margin-top: 20px;
+}
+.widget ul{
+	margin:0;
+	margin-top:11px;
+	/* padding:0 35px; */
+}
+.widget ul li{
+	list-style: none;
+	line-height:32px;
+}
+
+.widget .table tr td a{
+	position: relative;
+	display: block;
+	margin: -2px;
+	border-radius: 3px;
+	height: 27px;
+	padding: 3px 0px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+	padding:6px;
+	width:10%;
+}
+
+
+/* tpl table */
+.tpl-table-row {
+	padding-top:16px;
+	padding-bottom:2px;
+	line-height: 20px;	
+}
+.tpl-table-row .tpl-table-row-title{
+	font-size:16px;
+	margin-top:2px;
+	margin-bottom:6px;
+	text-shadow: none;
+	font-weight: normal;
+	letter-spacing:0.5px;
+}
+.tpl-table-row-metas-top{
+	margin-top:10px;
+}
+
+/* animations */
+#sidebar-left, .header-wraper, #primary{
+    transition: margin 150ms, width 150ms, padding 150ms;
+}
+
+
+/* form */
+#sidebar .json-form{
+	margin:0px 60px;
+}
+.json-form{
+	-moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+.json-form legend{
+	border-bottom: 2px solid #333;
+}
+.json-form .control-label{
+	font-size:16px;	
+}
+.json-form .form-actions{
+	text-align: right;
+}
+.json-form .control-group{
+	margin-bottom:20px;
+}
+.json-form input[type="text"], .json-form textarea{
+	color:#2196f3;
+}
+.json-form input[type="checkbox"]{
+	margin-left: 0;
+}
+#main .json-form{
+	margin:20px 0;
+}
