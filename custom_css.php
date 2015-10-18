@@ -79,20 +79,20 @@ article, .tpl-table-row , footer .site-info{
 		}
 	?>
 }
-.widget .table tr td:last-child{
-	width:25% !important;
+.widget .table tr td:last-child, .widget .table tr th:last-child{
+	padding-right:15%;
 	<?php
-	if(	@$d['horizontal_margins'] != 0	){
+	/* if(	@$d['horizontal_margins'] != 0	){
 		echo 'padding-right:'.$d['horizontal_margins'].'px;';
-	}
+	} */
 	?>
 }
 .widget .table tr td:first-child, .widget .table tr th:first-child, .widget .table caption{
-	width:25% !important;
+	padding-left:15%;
 	<?php
-	if(	@$d['horizontal_margins'] != 0	){
+	/* if(	@$d['horizontal_margins'] != 0	){
 		echo 'padding-left:'.$d['horizontal_margins'].'px;';
-	}
+	} */
 	?>
 }
 .widget .current-cat{<?php
