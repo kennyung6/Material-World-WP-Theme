@@ -15,12 +15,11 @@
   });
 
   
-var _header_smaler = 1;
-      var _header_bigger = 1;
+  var _header_smaler = 1;
+  var _header_bigger = 1;
   window.addEventListener("scroll",function(h){
       
       var scaleAdd = 1 - (window.pageYOffset/150);
-      
 
        if(window.pageYOffset>60){
           
@@ -42,7 +41,6 @@ var _header_smaler = 1;
           if(_header_smaler == 0){            
             return false;
           }
-            
             $('#menu-new-menu').css('display','none');
             $('#content').css('padding-top','120px');
             $('#masthead').css({'position':'fixed','width':'100%','height':'60px'}); 
@@ -71,19 +69,24 @@ var _header_smaler = 1;
           _header_smaler = 1;
           _header_bigger = 0;
        }
-
-    
-
-
   });
 
   $('#wp-calendar').addClass('table table-responsive table-striped');
 
-
+  /* init left sidebar storage stage */
   if(sessionStorage.left_sidebar_stage == null){
     sessionStorage.left_sidebar_stage = 0;
   };
 
+  /* set hide left sidebar on Pages and Posts */
+  if($('body').hasClass('single')){
+    sessionStorage.left_sidebar_stage = 0;
+  }
+  if($('body').hasClass('page')){
+    sessionStorage.left_sidebar_stage = 0;
+  }
+
+  /* Auto Show or Hidden sidebar */
   if(sessionStorage.left_sidebar_stage == 0){
     
     $('#sidebar-left').addClass('sidebar-close');
@@ -95,13 +98,12 @@ var _header_smaler = 1;
     $('#primary').removeClass('width-100');
 
   }
-
+  /* Show or Hidden sidebar by click */
   $('#left-sidebar-menu-button').click(function(e){
     
     $('#sidebar-left').toggleClass('sidebar-close');
     $('#primary').toggleClass('width-100');
 
-    
     if(sessionStorage.left_sidebar_stage == 0){
       sessionStorage.left_sidebar_stage = 1;
       $('html, body').animate({

@@ -7,6 +7,14 @@
 
 get_header(); ?>
 
+	<div id="sidebar-left">		
+	<?php if ( is_active_sidebar( 'left-sidebar' ) ) :  ?>
+			<ul id="sidebar">
+				<?php dynamic_sidebar( 'left-sidebar' ); ?>
+			</ul>
+	<?php endif; ?>
+	</div>
+
 	<div id="primary" class="content-area container">
 		<main id="main" class="site-main" role="main">
 
