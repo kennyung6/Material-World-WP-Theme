@@ -6,7 +6,7 @@ WordPress Theme based on Google Material Design practices. Theme idea is simple 
 Some screenshots
 ---------------
 
-<img src="https://github.com/dadmor/WP-JSON-Form/blob/master/github-assets/theme-screens.png">
+<img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/theme-screens.png">
 
 
 
