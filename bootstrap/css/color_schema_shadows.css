@@ -1,8 +1,11 @@
 /* SHADOWS */
 #masthead{
-	/* box-shadow: 0px 0px 6px #141414; */
-	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+	box-shadow: 0 2px 5px rgba(0,0,0,0.26);	
 } 
+.site-branding{
+	-moz-box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+}
 #sidebar-left{
 /* 	-webkit-box-shadow: 2px 0 5px -2px #A0A0A0;
 box-shadow: 2px 0 5px -2px #A0A0A0; */
