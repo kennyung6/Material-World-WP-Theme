@@ -47,7 +47,10 @@ function wpmaterialdesign_setup() {
 
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
-
+	add_theme_support( 'post-thumbnails' );
+	//add_image_size('post-header-image', 960, 300, true);
+	
+	
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'wpmaterialdesign_custom_background_args', array(
 		'default-color' => 'ffffff',
@@ -93,6 +96,22 @@ function wpmaterialdesign_widgets_init() {
 }
 add_action( 'widgets_init', 'wpmaterialdesign_widgets_init' );
 
+function wpmaterialdesign_create_book_tax() {
+	register_taxonomy(
+      'template_part',
+      array( 'post' ),
+      array( 'hierarchical' => true,
+             'label' => __('Template parst', 'wpmaterialdesign'),
+             'query_var' => 'template_part',
+             'show_admin_column' => true
+             //'rewrite' => array( 'slug' => 'actors' )
+      )
+   );
+}
+add_action( 'init', 'wpmaterialdesign_create_book_tax' );
+
+
+
 /**
  * Enqueue scripts and styles.
  */
@@ -127,8 +146,6 @@ function wpmaterialdesign_scripts() {
 	if ( is_active_sidebar( 'left-sidebar' ) ){
 		wp_enqueue_style( 'sidebar', get_template_directory_uri() . '/bootstrap/css/sidebar.css');
 	}
-
-
 
 	//wp_enqueue_style( $wpmaterialdesign_theme_settings['color_scheme'], get_template_directory_uri() . '/bootstrap/css/'.$wpmaterialdesign_theme_settings['color_scheme'].'.css');
 
@@ -225,18 +242,16 @@ function new_excerpt_length($length) {
 }
 add_filter('excerpt_length', 'new_excerpt_length');
 
-/* Custom css */
-
-
-
-
-function tcx_customizer_css() {
+/**
+ * Generate customize css 
+ */
+function wpmaterialdesign_generate_css() {
     require get_template_directory() . '/inc/custom_css.php';
-    if( $wpmaterialdesign_theme_settings["left_sidebar_pinned"] == ''){
+    /*if( $wpmaterialdesign_theme_settings["left_sidebar_pinned"] == ''){
     	$wpmaterialdesign_theme_settings["left_sidebar_pinned"] = 0;
-    }
+    }*/
 }
-add_action( 'wp_head', 'tcx_customizer_css' );
+add_action( 'wp_head', 'wpmaterialdesign_generate_css' );
 
 
 

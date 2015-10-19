@@ -3,19 +3,29 @@
  * @package wpmaterialdesign
  */
 ?>
-<div class="post-wraper row">
-	<div class="col-md-12">
+<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+<div class="post-wraper col-md-4"  >
+	<div style="position:absolute; width:100%; height:200px; background:url(<?php echo $url; ?>); background-size: cover; margin:0px -15px">&nbsp;</div>
+	<div style="height:200px"></div>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="top-article-decorator"></div>
+		<div class="top-article-decorator" style="height:30px"></div>
 		<header class="entry-header">
 			
 			<?php if ( 'post' == get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php wpmaterialdesign_posted_on(); ?>
-			</div><!-- .entry-meta -->
+
+				<?php
+					/* translators: used between list items, there is a space after the comma */
+					$categories_list = get_the_category_list( __( ', ', 'wpmaterialdesign' ) );
+					if ( $categories_list && wpmaterialdesign_categorized_blog() ) :
+				?>
+				<span class="cat-links">
+					<?php printf( __( '%1$s', 'wpmaterialdesign' ), $categories_list ); ?>
+				</span>
+				<?php endif; // End if categories ?>
+
 			<?php endif; ?>
 
-			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			<?php the_title( sprintf( '<h1 class="entry-title" style="font-size:22px; overflow: hidden; max-height: 48px;"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		</header><!-- .entry-header -->
 
@@ -38,25 +48,9 @@
 
 		<footer class="entry-footer">
 			<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
-				<?php
-					/* translators: used between list items, there is a space after the comma */
-					$categories_list = get_the_category_list( __( ', ', 'wpmaterialdesign' ) );
-					if ( $categories_list && wpmaterialdesign_categorized_blog() ) :
-				?>
-				<span class="cat-links">
-					<?php printf( __( 'In %1$s', 'wpmaterialdesign' ), $categories_list ); ?>
-				</span>
-				<?php endif; // End if categories ?>
+				
 
-				<?php
-					/* translators: used between list items, there is a space after the comma */
-					$tags_list = get_the_tag_list( '', __( ', ', 'wpmaterialdesign' ) );
-					if ( $tags_list ) :
-				?>
-				<span class="tags-links">
-					<?php printf( __( 'Tagged %1$s', 'wpmaterialdesign' ), $tags_list ); ?>
-				</span>
-				<?php endif; // End if $tags_list ?>
+				
 			<?php endif; // End if 'post' == get_post_type() ?>
 
 			<!-- <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
@@ -67,5 +61,5 @@
 			<?php edit_post_link( __( 'Edit', 'wpmaterialdesign' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-footer -->
 	</article><!-- #post-## -->
-	</div>
+
 </div>

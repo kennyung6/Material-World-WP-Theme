@@ -10,10 +10,7 @@
  *
  * @package wpmaterialdesign
  */
-	global $wpmaterialdesign_theme_settings;
-	if( $wpmaterialdesign_theme_settings['loop_template_part'] == NULL){
-		$wpmaterialdesign_theme_settings['loop_template_part'] = 'content';
-	}
+	
 	get_header(); 
 
 	
@@ -48,7 +45,12 @@
 						 * If you want to override this in a child theme, then include a file
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
-						get_template_part( $wpmaterialdesign_theme_settings['loop_template_part'] , get_post_format() );
+						$template = $wpmaterialdesign_theme_settings['loop_template_part'];
+						$template_terms = wp_get_post_terms( $post->ID, 'template_part', array() );
+						if(@$template_terms[0]->slug){
+							$template = 'tpl-'.$template_terms[0]->slug;
+						}
+						get_template_part( 'layouts/'.$template , get_post_format() );
 					?>
 				<?php endwhile; ?>
 
@@ -56,7 +58,7 @@
 
 			<?php else : ?>
 
-				<?php get_template_part( 'content', 'none' ); ?>
+				<?php get_template_part( 'layouts/'.'content', 'none' ); ?>
 
 			<?php endif; ?>
 

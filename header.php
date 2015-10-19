@@ -17,6 +17,13 @@
 
 <?php wp_head(); ?>
 
+<?php
+	global $wpmaterialdesign_theme_settings;
+	if( $wpmaterialdesign_theme_settings['loop_template_part'] == NULL){
+		$wpmaterialdesign_theme_settings['loop_template_part'] = 'content';
+	}
+?>
+
 </head>
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
