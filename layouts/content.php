@@ -7,7 +7,7 @@
 <div class="row" ></div>
 <div class="post-wraper row" style="background-image:url(<?php echo $url; ?>); background-size: cover;"; >
 	
-	<div class="col-md-12">
+	<div class="col-md-12" style="background-color: rgba(255,255,255,0.5);">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="top-article-decorator"></div>
 		<header class="entry-header">
