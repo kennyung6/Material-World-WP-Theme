@@ -1,9 +1,12 @@
 <?php  
-	global $wpmice_theme_settings;
-	$d = $wpmice_theme_settings; 
+	global $wpmaterialdesign_theme_settings;
+	$d = $wpmaterialdesign_theme_settings; 
 
 	if(@$d['left-sidebar-percentage'] == null){
 		@$d['left-sidebar-percentage'] = 25;
+	}
+	if(@$d['horizontal_margins']==NULL){
+		@$d['horizontal_margins'] = 40;
 	}
 ?>
 <style type="text/css">

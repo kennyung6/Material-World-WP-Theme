@@ -3,17 +3,17 @@
  * Jetpack Compatibility File
  * See: http://jetpack.me/
  *
- * @package wpmice
+ * @package wpmaterialdesign
  */
 
 /**
  * Add theme support for Infinite Scroll.
  * See: http://jetpack.me/support/infinite-scroll/
  */
-function wpmice_jetpack_setup() {
+function wpmaterialdesign_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'footer'    => 'page',
 	) );
 }
-add_action( 'after_setup_theme', 'wpmice_jetpack_setup' );
+add_action( 'after_setup_theme', 'wpmaterialdesign_jetpack_setup' );

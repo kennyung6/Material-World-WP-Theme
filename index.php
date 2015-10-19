@@ -8,11 +8,11 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package wpmice
+ * @package wpmaterialdesign
  */
-	global $wpmice_theme_settings;
-	if( $wpmice_theme_settings['loop_template_part'] == NULL){
-		$wpmice_theme_settings['loop_template_part'] = 'content';
+	global $wpmaterialdesign_theme_settings;
+	if( $wpmaterialdesign_theme_settings['loop_template_part'] == NULL){
+		$wpmaterialdesign_theme_settings['loop_template_part'] = 'content';
 	}
 	get_header(); 
 
@@ -48,11 +48,11 @@
 						 * If you want to override this in a child theme, then include a file
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
-						get_template_part( $wpmice_theme_settings['loop_template_part'] , get_post_format() );
+						get_template_part( $wpmaterialdesign_theme_settings['loop_template_part'] , get_post_format() );
 					?>
 				<?php endwhile; ?>
 
-				<?php wpmice_paging_nav(); ?>
+				<?php wpmaterialdesign_paging_nav(); ?>
 
 			<?php else : ?>
 

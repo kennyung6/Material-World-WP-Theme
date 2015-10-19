@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package wpmice
+ * @package wpmaterialdesign
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -32,8 +32,8 @@
 
 		<?php 
 			/* Header nav position corector */
-			global $wpmice_theme_settings;
-			if( @$wpmice_theme_settings['header_nav_disable'] != 1 ){ 
+			global $wpmaterialdesign_theme_settings;
+			if( @$wpmaterialdesign_theme_settings['header_nav_disable'] != 1 ){ 
 		?>
 		<div class="row site-header-nav" >
 			<nav class="bs-component" role="navigation">

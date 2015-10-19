@@ -12,37 +12,37 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package wpmice
+ * @package wpmaterialdesign
  */
 
 /**
  * Setup the WordPress core custom header feature.
  *
- * @uses wpmice_header_style()
- * @uses wpmice_admin_header_style()
- * @uses wpmice_admin_header_image()
+ * @uses wpmaterialdesign_header_style()
+ * @uses wpmaterialdesign_admin_header_style()
+ * @uses wpmaterialdesign_admin_header_image()
  */
-function wpmice_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'wpmice_custom_header_args', array(
+function wpmaterialdesign_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'wpmaterialdesign_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'wpmice_header_style',
-		'admin-head-callback'    => 'wpmice_admin_header_style',
-		'admin-preview-callback' => 'wpmice_admin_header_image',
+		'wp-head-callback'       => 'wpmaterialdesign_header_style',
+		'admin-head-callback'    => 'wpmaterialdesign_admin_header_style',
+		'admin-preview-callback' => 'wpmaterialdesign_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'wpmice_custom_header_setup' );
+add_action( 'after_setup_theme', 'wpmaterialdesign_custom_header_setup' );
 
-if ( ! function_exists( 'wpmice_header_style' ) ) :
+if ( ! function_exists( 'wpmaterialdesign_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see wpmice_custom_header_setup().
+ * @see wpmaterialdesign_custom_header_setup().
  */
-function wpmice_header_style() {
+function wpmaterialdesign_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function wpmice_header_style() {
 	</style>
 	<?php
 }
-endif; // wpmice_header_style
+endif; // wpmaterialdesign_header_style
 
-if ( ! function_exists( 'wpmice_admin_header_style' ) ) :
+if ( ! function_exists( 'wpmaterialdesign_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see wpmice_custom_header_setup().
+ * @see wpmaterialdesign_custom_header_setup().
  */
-function wpmice_admin_header_style() {
+function wpmaterialdesign_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function wpmice_admin_header_style() {
 	</style>
 <?php
 }
-endif; // wpmice_admin_header_style
+endif; // wpmaterialdesign_admin_header_style
 
-if ( ! function_exists( 'wpmice_admin_header_image' ) ) :
+if ( ! function_exists( 'wpmaterialdesign_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see wpmice_custom_header_setup().
+ * @see wpmaterialdesign_custom_header_setup().
  */
-function wpmice_admin_header_image() {
+function wpmaterialdesign_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function wpmice_admin_header_image() {
 	</div>
 <?php
 }
-endif; // wpmice_admin_header_image
+endif; // wpmaterialdesign_admin_header_image

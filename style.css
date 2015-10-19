@@ -1,5 +1,5 @@
 /*
-Theme Name: wpmice
+Theme Name: wpmaterialdesign
 Theme URI: http://underscores.me/
 Author: Underscores.me
 Author URI: http://underscores.me/
@@ -7,14 +7,14 @@ Description: Description
 Version: 1.0-wpcom
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wpmice
+Text Domain: wpmaterialdesign
 Domain Path: /languages/
 Tags:
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
- wpmice is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
+ wpmaterialdesign is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
@@ -456,3 +456,39 @@ img[class*="wp-image-"],
 	border-right: 0px;
 	border-bottom-width: 5px;
 } */
+
+
+/* default colors */
+a{
+	color:#455A64;
+}
+a:hover{
+	color:#37474F
+}
+#masthead{
+	border-bottom: 1px solid #546E7A;
+	color: #ECEFF1;
+}
+#masthead .site-title a, .site-footer a{
+	color:#ECEFF1;
+}
+#masthead .site-description{
+	color:#CFD8DC;
+}
+#masthead .site-header-main{
+	background-color: #90A4AE; 
+}
+#masthead .site-header-nav{
+	background-color: #455A64;   
+}
+.site-footer{
+	background-color: #607D8B;
+	color:#fff;
+}
+.widget .table tr td a{
+	background-color: #E8EAF6;
+}
+.widget .current-cat{
+	background-color: #E8EAF6;
+	outline: #E8EAF6 solid 4px;
+}

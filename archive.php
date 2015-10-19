@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package wpmice
+ * @package wpmaterialdesign
  */
 
 get_header(); ?>
@@ -33,46 +33,46 @@ get_header(); ?>
 							single_tag_title();
 
 						elseif ( is_author() ) :
-							printf( __( 'Author: %s', 'wpmice' ), '<span class="vcard">' . get_the_author() . '</span>' );
+							printf( __( 'Author: %s', 'wpmaterialdesign' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'wpmice' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'wpmaterialdesign' ), '<span>' . get_the_date() . '</span>' );
 
 						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'wpmice' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'wpmice' ) ) . '</span>' );
+							printf( __( 'Month: %s', 'wpmaterialdesign' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'wpmaterialdesign' ) ) . '</span>' );
 
 						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'wpmice' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'wpmice' ) ) . '</span>' );
+							printf( __( 'Year: %s', 'wpmaterialdesign' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'wpmaterialdesign' ) ) . '</span>' );
 
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'wpmice' );
+							_e( 'Asides', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'wpmice');
+							_e( 'Galleries', 'wpmaterialdesign');
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'wpmice');
+							_e( 'Images', 'wpmaterialdesign');
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'wpmice' );
+							_e( 'Videos', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'wpmice' );
+							_e( 'Quotes', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'wpmice' );
+							_e( 'Links', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'wpmice' );
+							_e( 'Statuses', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'wpmice' );
+							_e( 'Audios', 'wpmaterialdesign' );
 
 						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'wpmice' );
+							_e( 'Chats', 'wpmaterialdesign' );
 
 						else :
-							_e( 'Archives', 'wpmice' );
+							_e( 'Archives', 'wpmaterialdesign' );
 
 						endif;
 					?>
@@ -99,7 +99,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php wpmice_paging_nav(); ?>
+			<?php wpmaterialdesign_paging_nav(); ?>
 
 		<?php else : ?>
 
