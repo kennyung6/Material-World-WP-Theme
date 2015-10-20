@@ -34,4 +34,5 @@ Customization Example
 ---------------
 
 <img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/example_composition1.gif">
-
+To view this gif on fullscreen go to this location:
+https://raw.githubusercontent.com/dadmor/Material-World-WP-Theme/master/github-assets/example_composition1.gif
