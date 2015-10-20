@@ -49,6 +49,14 @@
 			'500' => '#673AB7',
 			'700' => '#512DA8',
 			'900' => '#311B92'			
+		),
+		'color_schema_brown'=> array(
+			'50' => '#EFEBE9',
+			'100' => '#D7CCC8',
+			'300' => '#A1887F',
+			'500' => '#795548',
+			'700' => '#5D4037',
+			'900' => '#3E2723'			
 		)
 	);
 ?>
@@ -58,10 +66,10 @@
 a{
 	color:<?php echo $colors[$d['color_scheme']]['700'];?>;
 }
-a:hover{
+a:hover, .page-numbers{
 	color:<?php echo $colors[$d['color_scheme']]['900'];?>;
 }
-#masthead .site-title a, .site-footer a{
+#masthead .site-title a, .site-footer a, #left-sidebar-menu-button{
 	color:<?php echo $colors[$d['color_scheme']]['50'];?>;
 }
 #masthead .site-description{

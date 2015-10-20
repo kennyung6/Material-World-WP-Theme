@@ -211,11 +211,36 @@ footer .site-info{
 }
 .tagcloud a {
 	margin: 0px;
-	padding: 5px;
+	padding: 3px 2px;
 	font-weight: 100;
 	background-color: rgba(236, 64, 122, 0.2);
 	border-radius: 5px;
 }
+.tag-link-35, .tag-link-34{
+	font-size:20px !important;
+}
+.tag-link-33, .tag-link-32{
+	font-size:19px !important;
+}
+.tag-link-31, .tag-link-30{
+	font-size:18px !important;
+}
+.tag-link-29, .tag-link-28{
+	font-size:17px !important;
+}
+.tag-link-27, .tag-link-26{
+	font-size:16px !important;
+}
+.tag-link-25, .tag-link-24{
+	font-size:15px !important;
+}
+.tag-link-23, .tag-link-22{
+	font-size:14px !important;
+}
+.tag-link-21, .tag-link-20{
+	font-size:13px !important;
+}
+
 
 /* animations */
 #sidebar-left, .header-wraper, #primary{
@@ -420,6 +445,8 @@ img[class*="wp-image-"],
       max-width: 100%;
    }
 
+   
+
 }
 
 @media only screen and ( max-width: 650px ) {
@@ -456,5 +483,39 @@ img[class*="wp-image-"],
 	border-right: 0px;
 	border-bottom-width: 5px;
 } */
+
+ @media (max-width:991px){
+	
+	#content{
+		height:100%;
+		overflow:hidden;
+	}
+	
+	#sidebar-left {
+        width:80% !important;
+        height:100% !important;
+    }
+    #primary{
+    	width:50% !important;
+    	margin-right:-40%;
+
+    }
+    .page article, .single article{
+    	margin-left:0px !important;
+    	margin-right:0px !important;
+
+    	padding-left:0px !important;
+    	padding-right:0px !important;
+    }
+    .page .entry-content, .single .entry-content{
+    	padding:10px 10px !important;
+    }
+
+ }
+
+/* mobile phone */
+@media all and (max-width: 768px) {
+    
+}
 
 
