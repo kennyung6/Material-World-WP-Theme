@@ -29,4 +29,7 @@ All graphical stage of this theme was compose on WP customizer.
 
 <img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/material_customize.png">
 
+Example of one customizations:
+
+<img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/example_compositipon1.png">
 
