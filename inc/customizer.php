@@ -65,6 +65,7 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 			'color_schema_pink'			=>	'Pink',
 			'color_schema_indigo'		=>	'Indigo',
 			'color_schema_teal'			=>	'Teal',
+			'color_schema_deep_purple'	=>	'Deep purple',
 		),
 	));
 	/* ---------------------------------------------------- */

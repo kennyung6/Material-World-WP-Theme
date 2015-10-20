@@ -8,9 +8,82 @@
 	if(@$d['horizontal_margins']==NULL){
 		@$d['horizontal_margins'] = 40;
 	}
+
+	$colors = array(
+		'color_schema_indigo'=> array(
+			'50' => '#E8EAF6',
+			'100' => '#C5CAE9',
+			'300' => '#7986CB',
+			'500' => '#3F51B5',
+			'700' => '#303F9F',
+			'900' => '#1A237E'			
+		),
+		'color_schema_pink'=> array(
+			'50' => '#FCE4EC',
+			'100' => '#F8BBD0',
+			'300' => '#F06292',
+			'500' => '#E91E63',
+			'700' => '#C2185B',
+			'900' => '#880E4F'			
+		),
+		'color_schema_gray_blue'=> array(
+			'50' => '#ECEFF1',
+			'100' => '#CFD8DC',
+			'300' => '#90A4AE',
+			'500' => '#607D8B',
+			'700' => '#455A64',
+			'900' => '#263238'			
+		),
+		'color_schema_teal'=> array(
+			'50' => '#E0F2F1',
+			'100' => '#B2DFDB',
+			'300' => '#4DB6AC',
+			'500' => '#009688',
+			'700' => '#00796B',
+			'900' => '#004D40'			
+		),
+		'color_schema_deep_purple'=> array(
+			'50' => '#EDE7F6',
+			'100' => '#D1C4E9',
+			'300' => '#9575CD',
+			'500' => '#673AB7',
+			'700' => '#512DA8',
+			'900' => '#311B92'			
+		)
+	);
 ?>
 <style type="text/css">
 
+/*----------------------  Colors --------------------------*/
+a{
+	color:<?php echo $colors[$d['color_scheme']]['700'];?>;
+}
+a:hover{
+	color:<?php echo $colors[$d['color_scheme']]['900'];?>;
+}
+#masthead .site-title a, .site-footer a{
+	color:<?php echo $colors[$d['color_scheme']]['50'];?>;
+}
+#masthead .site-description{
+	color:<?php echo $colors[$d['color_scheme']]['100'];?>;
+}
+#masthead .site-header-main{
+	background-color: <?php echo $colors[$d['color_scheme']]['300'];?>;   
+}
+#masthead .site-header-nav{
+	background-color: <?php echo $colors[$d['color_scheme']]['500'];?>;   
+}
+.site-footer{
+	background-color: <?php echo $colors[$d['color_scheme']]['500'];?>;
+	color:#fff;
+}
+.widget .table tr td a{
+	background-color: <?php echo $colors[$d['color_scheme']]['50'];?>;
+}
+.widget .current-cat{
+	background-color: <?php echo $colors[$d['color_scheme']]['50'];?>;
+	outline: <?php echo $colors[$d['color_scheme']]['50'];?> solid 4px;
+}
 
 /*----------------------  Header --------------------------*/
 #masthead .site-header-nav {

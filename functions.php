@@ -126,8 +126,7 @@ function wpmaterialdesign_scripts() {
 	/* load color sheme */
 	
 	//echo $wpmaterialdesign_theme_settings['color_scheme'];
-	//wp_enqueue_style( $wpmaterialdesign_theme_settings['color_scheme'], get_template_directory_uri() . '/bootstrap/css/'.$wpmaterialdesign_theme_settings['color_scheme'].'.css');
-
+	
 	/* load shadows */
 	if($wpmaterialdesign_theme_settings['shadows']){
 		wp_enqueue_style( 'shadows', get_template_directory_uri() . '/bootstrap/css/color_schema_shadows.css');
@@ -161,6 +160,7 @@ function wpmaterialdesign_scripts() {
 
 	wp_enqueue_style( 'wpmaterialdesign-style', get_stylesheet_uri() );
 	
+	//wp_enqueue_style( $wpmaterialdesign_theme_settings['color_scheme'], get_template_directory_uri() . '/bootstrap/css/'.$wpmaterialdesign_theme_settings['color_scheme'].'.css');
 
 	//wp_enqueue_script( 'wpmaterialdesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 

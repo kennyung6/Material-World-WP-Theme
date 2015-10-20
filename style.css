@@ -458,37 +458,3 @@ img[class*="wp-image-"],
 } */
 
 
-/* default colors */
-a{
-	color:#455A64;
-}
-a:hover{
-	color:#37474F
-}
-#masthead{
-	border-bottom: 1px solid #546E7A;
-	color: #ECEFF1;
-}
-#masthead .site-title a, .site-footer a{
-	color:#ECEFF1;
-}
-#masthead .site-description{
-	color:#CFD8DC;
-}
-#masthead .site-header-main{
-	background-color: #90A4AE; 
-}
-#masthead .site-header-nav{
-	background-color: #455A64;   
-}
-.site-footer{
-	background-color: #607D8B;
-	color:#fff;
-}
-.widget .table tr td a{
-	background-color: #E8EAF6;
-}
-.widget .current-cat{
-	background-color: #E8EAF6;
-	outline: #E8EAF6 solid 4px;
-}
