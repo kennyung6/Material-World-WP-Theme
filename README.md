@@ -33,5 +33,5 @@ All graphical stage of this theme was compose on WP customizer.
 Customization Example
 ---------------
 
-<img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/example_compositipon1.gif">
+<img src="https://github.com/dadmor/Material-World-WP-Theme/blob/master/github-assets/example_composition1.gif">
 
