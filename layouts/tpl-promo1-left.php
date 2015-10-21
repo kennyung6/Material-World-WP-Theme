@@ -4,12 +4,12 @@
  */
 ?>
 <?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-<div class="post-wraper row" style="height: 100%; display: table; width: 100%;" >
-	<div class="col-md-8" style="background-image:url(<?php echo $url; ?>); background-size: cover; display: table-cell;height: 100%;">
+<div class="post-wraper row promo1">
+	<div class="col-md-8 image-side" style="background-image:url(<?php echo $url; ?>);">
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-4 content-side">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<div class="top-article-decorator" style="height:60px"></div>
+		<div class="top-article-decorator"></div>
 		<header class="entry-header">
 			
 			<?php if ( 'post' == get_post_type() ) : ?>
@@ -18,7 +18,7 @@
 			</div><!-- .entry-meta -->
 			<?php endif; ?>
 
-			<?php the_title( sprintf( '<h1 class="entry-title" style="font-size:22px"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
+			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		</header><!-- .entry-header -->
 

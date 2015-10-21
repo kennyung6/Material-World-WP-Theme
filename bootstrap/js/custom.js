@@ -90,11 +90,13 @@
     
     $('#sidebar-left').addClass('sidebar-close');
     $('#primary').addClass('width-100');
+    $('#primary').removeClass('right-minus30');
   
   }else{
 
     $('#sidebar-left').removeClass('sidebar-close');
     $('#primary').removeClass('width-100');
+    $('#primary').addClass('right-minus30');
 
   }
   /* Show or Hidden sidebar by click */
@@ -102,6 +104,7 @@
     
     $('#sidebar-left').toggleClass('sidebar-close');
     $('#primary').toggleClass('width-100');
+    $('#primary').toggleClass('right-minus30');
 
     if(sessionStorage.left_sidebar_stage == 0){
       sessionStorage.left_sidebar_stage = 1;

@@ -234,7 +234,7 @@ article, .tpl-table-row , footer .site-info{
 /* LEFT SIDEBAR ANIMATIONS */ 
 /* move left */
 #sidebar-left.sidebar-close{
-	margin-left:-<?php echo @$d['left-sidebar-percentage']; ?>% !important;
+	margin-left:-<?php echo @$d['left-sidebar-percentage']; ?>%;
 	cursor:pointer;
 	opacity:0;
 }

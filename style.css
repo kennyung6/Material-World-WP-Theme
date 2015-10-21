@@ -1,21 +1,22 @@
 /*
 Theme Name: wpmaterialdesign
-Theme URI: http://underscores.me/
-Author: Underscores.me
-Author URI: http://underscores.me/
-Description: Description
-Version: 1.0-wpcom
+Theme URI: https://github.com/dadmor/Material-World-WP-Theme
+Author: gdurtan
+Author URI: https://github.com/dadmor/
+Description: WordPress Theme based on Google Material Design practices. Theme idea is simple transform from blog to web application. Everything was transform on theme customizer panel.
+Version: 1.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: wpmaterialdesign
 Domain Path: /languages/
-Tags:
+Tags: materialdesign, webapplcations, multipurpose, clean
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 
  wpmaterialdesign is based on Underscores http://underscores.me/, (C) 2012-2014 Automattic, Inc.
-
+ and WPMICE (mix underscores and bootstrap) and BootstrapPaper (material diesign bootstrap mod)
+ 
 Resetting and rebuilding styles have been helped along thanks to the fine work of
 Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
 along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
@@ -38,6 +39,29 @@ ul{
 }
 
 /*-------------------------------------------------------------- */
+/* layout and sidebars */
+.flexbox-container {
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+#masthead{
+	z-index: 2000;
+	position: relative;
+}
+/* rebuild dimentions */
+#content .width-100{
+	width: 100%;	
+}
+/* heder align */
+.center{	
+	text-align:center !important;
+}
+.left{
+	text-align:left !important;
+}
+
+/*-------------------------------------------------------------- */
 /* header dimentions */
 .site-branding{	
 	margin-top:21px;
@@ -56,14 +80,10 @@ ul{
 
 /*-------------------------------------------------------------- */
 /* navbars */
-.site-header-nav .nav-tabs{ 
-	/* text-align: center; */
-}
 .site-header-nav nav ul li {
 	display: inline-block; 
 	float:none;
 }
-
 /* colorized navbars */
 .site-header-nav nav ul li a{
 	color: #C5CAE9;
@@ -132,8 +152,6 @@ time.updated{
 	margin-left:10%;
 }
 
-
-
 /*-------------------------------------------------------------- */
 /* FOOTER */
 footer .site-info{
@@ -143,7 +161,6 @@ footer .site-info{
 /*-------------------------------------------------------------- */
 /* widgets */
 .widget .widget-title{
-	/* padding:0px 35px; */
 	font-size:18px;
 	line-height:46px;	
 	margin-top:10px;
@@ -155,13 +172,11 @@ footer .site-info{
 .widget ul{
 	margin:0;
 	margin-top:11px;
-	/* padding:0 35px; */
 }
 .widget ul li{
 	list-style: none;
 	line-height:32px;
 }
-
 .widget .table tr td a{
 	position: relative;
 	display: block;
@@ -172,38 +187,7 @@ footer .site-info{
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
 	padding:6px;
-	/* width:10%; */
 	text-align: center;
-}
-.widget .table tr th:first-child{
-	/* padding-left:15%; */
-}
-.widget .table tr td:last-child, .widget .table tr th:last-child{
-	/* width:25% !important; */
-}
-.widget .table tr td:first-child, .widget .table tr th:first-child{
-	/* width:25% !important; */
-}
-.widget .table caption{
-	/* width:100% !important; */
-}
-
-/* tpl table */
-.tpl-table-row {
-	padding-top:16px;
-	padding-bottom:2px;
-	line-height: 20px;	
-}
-.tpl-table-row .tpl-table-row-title{
-	font-size:16px;
-	margin-top:2px;
-	margin-bottom:6px;
-	text-shadow: none;
-	font-weight: normal;
-	letter-spacing:0.5px;
-}
-.tpl-table-row-metas-top{
-	margin-top:10px;
 }
 /* tags */
 .tagcloud {
@@ -241,13 +225,13 @@ footer .site-info{
 	font-size:13px !important;
 }
 
-
+/*-------------------------------------------------------------- */
 /* animations */
 #sidebar-left, .header-wraper, #primary{
     transition: margin 150ms, width 150ms, padding 150ms;
 }
 
-
+/*-------------------------------------------------------------- */
 /* form */
 #sidebar .json-form{
 	margin:0px 60px;
@@ -282,32 +266,6 @@ footer .site-info{
 }
 
 
-/* gallery */
-/* .gallery {
-	margin: auto;
-	width: 100%;
-	display: table;
-	margin-bottom: 40px;
-}
-.gallery-item {
-	margin-top: 0px;
-	text-align: center;
-	display: table-cell;
-}
-.gallery img {
-
-	border: 1px solid #cfcfcf;
-	padding:2px;
-}
-.gallery img:hover {
-	border: 1px solid #333333;
-	padding:2px;
-} */
-
-
- 
-
-
 /**
  * Responsive WordPress Core Theme Styles
  * http://jeffsebring.com/responsive-wordpress-images/
@@ -318,91 +276,74 @@ footer .site-info{
 .gallery-caption {
    display: normal;
 }
-
 .alignnone {
    margin: 1em 1em 1em 0;
 }
-
 .aligncenter,
 div.aligncenter {
    display:block;
    margin: .5em auto;
 }
-
 .alignright {
    float:right;
    margin: 0 0 1em 1em;
 }
-
 .alignleft {
    float:left;
    margin: 0 1em 1em 0;
 }
-
 .aligncenter {
    display: block;
    margin: 1em auto;
 }
-
 img,
 img[class*="align"],
 img[class*="wp-image-"] {
    max-width: 100%;
    height: auto;
 }
-
 img.wp-smiley {
    border: none;
    margin-bottom: 0;
    margin-top: 0;
    padding: 0;
 }
-
 img.alignright {
    margin-left: 1em 0 1em 1em;
 }
-
 img.alignleft {
    margin: 1em 1em 1em 0;
 }
-
 img.aligncenter{
    display: block;
    margin: 1em auto;
 }
-
 img#wpstats {
    display: block;
    margin: 0 auto;
 }
-
 img[class*="align"],
 img[class*="wp-image-"],
    .gallery .gallery-icon img {
    border: none;
 }
-
 .wp-caption {
    margin-bottom: 1em;
    margin-left: 0;
    max-width: 96%;
    text-align: center;
 }
-
 .wp-caption img {
    display: block;
    margin: 0 auto;
 }
-
 .wp-caption-text {
    position: relative;
    font-size: .8em;
 }
-
 .gallery {
    margin: 0 auto;   
 }
-
 .gallery .gallery-item  {
    margin: 0;
    float: left;
@@ -410,69 +351,76 @@ img[class*="wp-image-"],
    width: 33%;
    margin-bottom:20px;
 }
-
 .gallery a img {
    border: none;
 }
-
 .gallery-columns-4 .gallery-item {
    width: 25%;
 }
-
 .gallery-columns-4 .gallery-item img {
    width: 100%;
    height: auto;
 }
-
 .comments ol    {
    padding-left: 0;
 }
-
 .comments ol li {
    margin: 0;
 }
-
 .comment-author {
    padding: 0;
    text-decoration: none;
 }
-
-
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
 @media only screen and (max-width: 800px) {
-
    embed,
    object {
       max-width: 100%;
    }
-
-   
-
 }
-
 @media only screen and ( max-width: 650px ) {
-
    .gallery-columns-3 .gallery-item {
       width: 33.33%;
    }
-
    .gallery-columns-3 .gallery-item img {
       width: 100%;
       height: auto;
    }
-
 }
-
 @media only screen and (max-width: 480px) {
-
    .gallery-columns-2 .gallery-item {
       width: 50%;
    }
-
    .gallery-columns-2 .gallery-item img {
       width: 100%;
       height: auto;
    }
-
 }
 
 /* essencecleanse */
@@ -484,38 +432,75 @@ img[class*="wp-image-"],
 	border-bottom-width: 5px;
 } */
 
- @media (max-width:991px){
-	
+/* tablets */
+@media (max-width:991px){
 	#content{
-		height:100%;
+		/* height:100%; */
 		overflow:hidden;
 	}
-	
 	#sidebar-left {
-        width:80% !important;
-        height:100% !important;
-    }
-    #primary{
-    	width:50% !important;
-    	margin-right:-40%;
+		width:100% !important;
+	}
+	#sidebar-left.sidebar-close{
+		margin-left:-100% !important;
+	}
+	.right-minus30{
+		margin-right:-50% !important;
+	}
+	#primary{
+		width:100% !important;
+		/* margin-right:-40%; */
+	}
+	.page article, .single article{
+		margin-left:0px !important;
+		margin-right:0px !important;
+		padding-left:0px !important;
+		padding-right:0px !important;
+	}
+	.page .entry-content, .single .entry-content{
+		padding:10px 10px !important;
+	}
+	.image-side{
+		display:none !important;
+	}
 
-    }
-    .page article, .single article{
-    	margin-left:0px !important;
-    	margin-right:0px !important;
-
-    	padding-left:0px !important;
-    	padding-right:0px !important;
-    }
-    .page .entry-content, .single .entry-content{
-    	padding:10px 10px !important;
-    }
-
- }
-
+}
 /* mobile phone */
 @media all and (max-width: 768px) {
     
 }
 
+/*-------------------------------------------------------------- */
+/* TEMPLATE PARTS */
 
+/* tpl table */
+.tpl-table-row {
+	padding-top:16px;
+	padding-bottom:2px;
+	line-height: 20px;	
+}
+.tpl-table-row .tpl-table-row-title{
+	font-size:16px;
+	margin-top:2px;
+	margin-bottom:6px;
+	text-shadow: none;
+	font-weight: normal;
+	letter-spacing:0.5px;
+}
+.tpl-table-row-metas-top{
+	margin-top:10px;
+}
+
+/* promo1 */
+.promo1{
+	height: 100%; display: table; width: 100%;
+}
+.promo1 .image-side{
+	background-size: cover; display: table-cell;height: 100%;
+}
+.promo1 .top-article-decorator{
+	height:60px
+}
+.promo1 .entry-title{
+	font-size:22px
+}

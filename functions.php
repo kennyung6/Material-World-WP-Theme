@@ -141,12 +141,6 @@ function wpmaterialdesign_scripts() {
 	if($wpmaterialdesign_theme_settings['tiled_margins']){
 		wp_enqueue_style( 'tiled_margins', get_template_directory_uri() . '/bootstrap/css/color_schema_tiled_margins.css');
 	}
-	
-	if ( is_active_sidebar( 'left-sidebar' ) ){
-		wp_enqueue_style( 'sidebar', get_template_directory_uri() . '/bootstrap/css/sidebar.css');
-	}
-
-	//wp_enqueue_style( $wpmaterialdesign_theme_settings['color_scheme'], get_template_directory_uri() . '/bootstrap/css/'.$wpmaterialdesign_theme_settings['color_scheme'].'.css');
 
 	//wp_enqueue_style( 'roboto', get_template_directory_uri() . '/bootstrap/css/roboto.min.css');
 
@@ -160,12 +154,9 @@ function wpmaterialdesign_scripts() {
 
 	wp_enqueue_style( 'wpmaterialdesign-style', get_stylesheet_uri() );
 	
-	//wp_enqueue_style( $wpmaterialdesign_theme_settings['color_scheme'], get_template_directory_uri() . '/bootstrap/css/'.$wpmaterialdesign_theme_settings['color_scheme'].'.css');
-
 	//wp_enqueue_script( 'wpmaterialdesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	//wp_enqueue_script( 'wpmaterialdesign-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
 
 	//wp_enqueue_script( 'ripples', get_template_directory_uri() . '/js/ripples.min.js', array(), '', true );
 
