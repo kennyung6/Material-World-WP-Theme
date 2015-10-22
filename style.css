@@ -36,6 +36,7 @@ ul{
 }
 #sidebar-left{
 	background-color: #fff;
+	will-change: *;
 }
 
 /*-------------------------------------------------------------- */
@@ -48,6 +49,9 @@ ul{
 #masthead{
 	z-index: 2000;
 	position: relative;
+}
+#sidebar{
+	will-change: *;
 }
 /* rebuild dimentions */
 #content .width-100{
@@ -168,6 +172,7 @@ footer .site-info{
 	margin-bottom:0px;
 	font-weight: 100;
 	margin-top: 20px;
+	will-change: *;
 }
 .widget ul{
 	margin:0;
@@ -245,6 +250,9 @@ footer .site-info{
 }
 .json-form legend{
 	border-bottom: 2px solid #333;
+	font-size: 22px;
+	padding-bottom: 10px;
+
 }
 .json-form .control-label{
 	font-size:16px;	
@@ -253,7 +261,7 @@ footer .site-info{
 	text-align: right;
 }
 .json-form .control-group{
-	margin-bottom:20px;
+	margin:20px 0px;
 }
 .json-form input[type="text"], .json-form textarea{
 	color:#2196f3;
@@ -263,6 +271,7 @@ footer .site-info{
 }
 #main .json-form{
 	margin:20px 0;
+	text-align: left;
 }
 
 

@@ -100,24 +100,80 @@
 
   }
   /* Show or Hidden sidebar by click */
-  $('#left-sidebar-menu-button').click(function(e){
-    
+  $('#left-sidebar-menu-button').click(function(){
+   activate_left_sidebar();
+  });
+
+  /*$("#sidebar-left").on("swipeleft",function(){
+    activate_left_sidebar();
+  });*/
+
+  function activate_left_sidebar(){
+
     $('#sidebar-left').toggleClass('sidebar-close');
     $('#primary').toggleClass('width-100');
     $('#primary').toggleClass('right-minus30');
 
     if(sessionStorage.left_sidebar_stage == 0){
       sessionStorage.left_sidebar_stage = 1;
-      
-/*      $('html, body').animate({
-          scrollTop: $("html").offset().top
+      /*      $('html, body').animate({
+      scrollTop: $("html").offset().top
       }, 150);*/
-
     }else{
-       sessionStorage.left_sidebar_stage = 0;
+      sessionStorage.left_sidebar_stage = 0;
+    }
+  }
+
+
+ function detectswipe(el,func) {
+  swipe_det = new Object();
+  swipe_det.sX = 0;
+  swipe_det.sY = 0;
+  swipe_det.eX = 0;
+  swipe_det.eY = 0;
+  var min_x = 20;  //min x swipe for horizontal swipe
+  var max_x = 40;  //max x difference for vertical swipe
+  var min_y = 40;  //min y swipe for vertical swipe
+  var max_y = 50;  //max y difference for horizontal swipe
+  var direc = "";
+  ele = document.getElementById(el);
+  ele.addEventListener('touchstart',function(e){
+    var t = e.touches[0];
+    swipe_det.sX = t.screenX; 
+    swipe_det.sY = t.screenY;
+  },false);
+  ele.addEventListener('touchmove',function(e){
+    //lock slide with touch
+    //e.preventDefault();
+    var t = e.touches[0];
+    swipe_det.eX = t.screenX; 
+    swipe_det.eY = t.screenY;    
+  },false);
+  ele.addEventListener('touchend',function(e){
+    //horizontal detection
+    if ((((swipe_det.eX - min_x > swipe_det.sX) || (swipe_det.eX + min_x < swipe_det.sX)) && ((swipe_det.eY < swipe_det.sY + max_y) && (swipe_det.sY > swipe_det.eY - max_y)))) {
+      if(swipe_det.eX > swipe_det.sX) direc = "r";
+      else direc = "l";
+    }
+    //vertical detection
+    if ((((swipe_det.eY - min_y > swipe_det.sY) || (swipe_det.eY + min_y < swipe_det.sY)) && ((swipe_det.eX < swipe_det.sX + max_x) && (swipe_det.sX > swipe_det.eX - max_x)))) {
+      if(swipe_det.eY > swipe_det.sY) direc = "d";
+      else direc = "u";
     }
 
-  })
+    if (direc != "") {
+      if(typeof func == 'function') func(el,direc);
+    }
+    direc = "";
+  },false);
+}
+
+function sidebar_swipe_left(el,d){
+  if(d == 'l'){
+    activate_left_sidebar();
+  }
+}
+detectswipe('sidebar-left',sidebar_swipe_left);
 
 })(jQuery);
 /* sticky header */

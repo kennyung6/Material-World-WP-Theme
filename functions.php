@@ -117,6 +117,8 @@ add_action( 'init', 'wpmaterialdesign_create_book_tax' );
  */
 function wpmaterialdesign_scripts() {
 
+
+
 	
 	global $wpmaterialdesign_theme_settings;
 
@@ -149,10 +151,16 @@ function wpmaterialdesign_scripts() {
 	//wp_enqueue_style( 'ripples', get_template_directory_uri() . '/bootstrap/css/ripples.min.css');
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true );
+
+
+
+	
 	
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/bootstrap/js/custom.js', array(), '', true );
 
 	wp_enqueue_style( 'wpmaterialdesign-style', get_stylesheet_uri() );
+
+
 	
 	//wp_enqueue_script( 'wpmaterialdesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
