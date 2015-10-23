@@ -96,29 +96,10 @@ function wpmaterialdesign_widgets_init() {
 }
 add_action( 'widgets_init', 'wpmaterialdesign_widgets_init' );
 
-function wpmaterialdesign_create_book_tax() {
-	register_taxonomy(
-      'template_part',
-      array( 'post' ),
-      array( 'hierarchical' => true,
-             'label' => __('Template parst', 'wpmaterialdesign'),
-             'query_var' => 'template_part',
-             'show_admin_column' => true
-             //'rewrite' => array( 'slug' => 'actors' )
-      )
-   );
-}
-add_action( 'init', 'wpmaterialdesign_create_book_tax' );
-
-
-
 /**
  * Enqueue scripts and styles.
  */
 function wpmaterialdesign_scripts() {
-
-
-
 	
 	global $wpmaterialdesign_theme_settings;
 
@@ -151,16 +132,10 @@ function wpmaterialdesign_scripts() {
 	//wp_enqueue_style( 'ripples', get_template_directory_uri() . '/bootstrap/css/ripples.min.css');
 
 	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/bootstrap/js/bootstrap.min.js', array('jquery'), '', true );
-
-
-
-	
 	
 	wp_enqueue_script( 'custom-js', get_template_directory_uri() . '/bootstrap/js/custom.js', array(), '', true );
 
 	wp_enqueue_style( 'wpmaterialdesign-style', get_stylesheet_uri() );
-
-
 	
 	//wp_enqueue_script( 'wpmaterialdesign-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -174,8 +149,6 @@ function wpmaterialdesign_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-
-	
 }
 add_action( 'wp_enqueue_scripts', 'wpmaterialdesign_scripts');
 
@@ -183,16 +156,6 @@ function get_theme_options(){
 	global $wpmaterialdesign_theme_settings;
 	$wpmaterialdesign_theme_settings = get_option( 'wpmaterialdesign_theme_options' );
 
-	// Add specific CSS class by filter
-	if( @$wpmaterialdesign_theme_settings['site_margins'] != 0	){ 
-		add_filter( 'body_class', 'my_class_names' );
-		function my_class_names( $classes ) {
-			// add 'class-name' to the $classes array
-			$classes[] = 'container';
-			// return the $classes array
-			return $classes;
-		}
-	}
 	
 /*	global $wpmaterialdesign_theme_settings;
 	$wpmaterialdesign_theme_settings = get_option( 'wpmaterialdesign_theme_options' );
@@ -205,7 +168,6 @@ function get_theme_options(){
 }
 add_action('wp', 'get_theme_options');
 	
-
 /**
  * Implement the Custom Header feature.
  */
@@ -234,7 +196,10 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load bootstrap_navmenu_walker
  */
 require get_template_directory() . '/inc/bootstrap_navmenu_walker.php';
-
+/**
+ * Template metabox
+ */
+require get_template_directory() . '/inc/template-metabox.php';
 
 function new_excerpt_length($length) {
 	return 10;
@@ -246,11 +211,16 @@ add_filter('excerpt_length', 'new_excerpt_length');
  */
 function wpmaterialdesign_generate_css() {
     require get_template_directory() . '/inc/custom_css.php';
-    /*if( $wpmaterialdesign_theme_settings["left_sidebar_pinned"] == ''){
-    	$wpmaterialdesign_theme_settings["left_sidebar_pinned"] = 0;
-    }*/
+
+    // Add specific CSS class by filter
+	if( @$wpmaterialdesign_theme_settings['site_margins'] != 0	){ 
+		add_filter( 'body_class', 'my_class_names' );
+		function my_class_names( $classes ) {
+			// add 'class-name' to the $classes array
+			$classes[] = 'container';
+			// return the $classes array
+			return $classes;
+		}
+	}	
 }
 add_action( 'wp_head', 'wpmaterialdesign_generate_css' );
-
-
-

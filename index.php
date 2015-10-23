@@ -46,10 +46,10 @@
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */
 						$template = $wpmaterialdesign_theme_settings['loop_template_part'];
-						$template_terms = wp_get_post_terms( $post->ID, 'template_part', array() );
-						if(@$template_terms[0]->slug){
-							$template = 'tpl-'.$template_terms[0]->slug;
-						}
+						$template_meta = get_post_meta($post->ID, '_wpmaterialdesign_template_part_key' ,true);
+						if( $template_meta['template'] != ''){
+							$template = 'tpl-'.$template_meta['template'];
+						}						
 						get_template_part( 'layouts/'.$template , get_post_format() );
 					?>
 				<?php endwhile; ?>
