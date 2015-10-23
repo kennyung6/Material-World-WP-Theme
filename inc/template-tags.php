@@ -78,28 +78,37 @@ if ( ! function_exists( 'wpmaterialdesign_posted_on' ) ) :
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function wpmaterialdesign_posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
-	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
-		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_date']){
+			$display_element = false;
+		}
 	}
+	if($display_element){
+		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+			$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
+		}
 
-	$time_string = sprintf( $time_string,
-		esc_attr( get_the_date( 'c' ) ),
-		esc_html( get_the_date() ),
-		esc_attr( get_the_modified_date( 'c' ) ),
-		esc_html( get_the_modified_date() )
-	);
+		$time_string = sprintf( $time_string,
+			esc_attr( get_the_date( 'c' ) ),
+			esc_html( get_the_date() ),
+			esc_attr( get_the_modified_date( 'c' ) ),
+			esc_html( get_the_modified_date() )
+		);
 
-	printf( __( '<span class="posted-on">%1$s</span><span class="byline"> by %2$s</span>', 'wpmaterialdesign' ),
-		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
-			esc_url( get_permalink() ),
-			$time_string
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		)
-	);
+		printf( __( '<span class="posted-on">%1$s</span><span class="byline"> by %2$s</span>', 'wpmaterialdesign' ),
+			sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+				esc_url( get_permalink() ),
+				$time_string
+			),
+			sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_the_author() )
+			)
+		);
+	}	
 }
 endif;
 
@@ -133,6 +142,130 @@ function wpmaterialdesign_categorized_blog() {
 		return false;
 	}
 }
+
+if ( ! function_exists( 'wpmaterialdesign_title' ) ) :
+/**
+ * Prints HTML with excerpt string.
+ */
+function wpmaterialdesign_title() {
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_title']){
+			$display_element = false;
+		}
+	}
+	if($display_element){
+		if (@$template_meta['properties']['remove_link_title']){
+			the_title( sprintf( '<h1 class="entry-title">', esc_url( get_the_title() ) ), '</h1>' );
+		}else{
+			the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' );
+		}	
+		
+	}
+}
+endif;
+
+if ( ! function_exists( 'wpmaterialdesign_excerpt' ) ) :
+/**
+ * Prints HTML with excerpt string.
+ */
+function wpmaterialdesign_excerpt() {
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_excerpt']){
+			$display_element = false;
+		}
+	}
+	if($display_element){
+		the_excerpt( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'wpmaterialdesign' ) ); 
+	}
+}
+endif;
+
+if ( ! function_exists( 'wpmaterialdesign_cat_list' ) ) :
+/**
+ * Prints HTML cattegories list.
+ */
+function wpmaterialdesign_cat_list($prefix = '') {
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_categories']){
+			$display_element = false;
+		}
+	}
+	if($display_element){
+
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( __( ', ', 'wpmaterialdesign' ) );
+			if ( $categories_list && wpmaterialdesign_categorized_blog() ) :
+		?>
+		<span class="cat-links">
+			<?php
+				print( $prefix );
+				if($prefix != ''){
+					print( ' ' );
+				}
+				printf( __( '%1$s', 'wpmaterialdesign' ), $categories_list );
+			?>
+		</span>
+		<?php endif; // End if categories 
+	}
+}
+endif;
+
+if ( ! function_exists( 'wpmaterialdesign_tags_list' ) ) :
+/**
+ * Prints HTML tags list.
+ */
+function wpmaterialdesign_tags_list() {
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_tags']){
+			$display_element = false;
+		}
+	}
+	if($display_element){
+
+		/* translators: used between list items, there is a space after the comma */
+		$tags_list = get_the_tag_list( '', __( ', ', 'wpmaterialdesign' ) );
+		if ( $tags_list ) :
+		?>
+		<span class="tags-links">
+			<?php printf( __( 'Tagged %1$s', 'wpmaterialdesign' ), $tags_list ); ?>
+		</span>
+		<?php endif; // End if $tags_list 
+	}
+}
+endif;
+
+if ( ! function_exists( 'wpmaterialdesign_read_more' ) ) :
+/**
+ * Prints read more button.
+ */
+function wpmaterialdesign_read_more() {
+	$display_element = true;
+	global $template_meta;
+	if($template_meta != ''){
+		if (@$template_meta['properties']['remove_read_more']){
+			$display_element = false;
+		}
+	}
+	if($display_element){
+	?>
+		<div class="continue-reading">
+			<a class="btn" href=" <?php echo esc_url( get_permalink()  ); ?>">
+				<?php echo __( 'Continue reading', 'wpmaterialdesign' ); ?>
+			</a>
+		</div>
+	<?php
+	}
+}
+endif;
+
 
 /**
  * Flush out the transients used in wpmaterialdesign_categorized_blog.

@@ -33,7 +33,7 @@ class someClass {
             if ( in_array( $post_type, $post_types )) {
 		add_meta_box(
 			'some_meta_box_name'
-			,__( 'Some Meta Box Headline', 'wpmaterialdesign_textdomain' )
+			,__( 'Template part with loop - display options', 'wpmaterialdesign_textdomain' )
 			,array( $this, 'render_meta_box_content' )
 			,$post_type
 			,'advanced'
@@ -99,13 +99,17 @@ class someClass {
 	 *
 	 * @param WP_Post $post The post object.
 	 */
-	public function render_meta_box_content( $post ) {
+	public function render_meta_box_content( $post ) {		
 	
 		// Add an nonce field so we can check for it later.
 		wp_nonce_field( 'wpmaterialdesign_inner_custom_box', 'wpmaterialdesign_inner_custom_box_nonce' );
 
 		// Use get_post_meta to retrieve an existing value from the database.
 		$value = get_post_meta( $post->ID, '_wpmaterialdesign_template_part_key', true );
+		//$value = array_merge($schema,(array)$value);
+		$value = (array)$value;
+
+
 
 		function check_req($key,$value){
 			if($key==$value){
@@ -120,7 +124,28 @@ class someClass {
 		//echo '<input type="text" id="wpmaterialdesign_template_part_field" name="wpmaterialdesign_template_part_field"';
         //echo ' value="' . esc_attr( $value ) . '" size="25" />';
 
-        echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Promo1 left</label> <input type="radio" name="wpmaterialdesign_template_part_field[template]" value="promo1-left" '.check_req($value['template'],'promo1-left').'></div>';
-        echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="one-third1" '.check_req($value['template'],'one-third1').'></div>';
+       echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="promo1-left" '.check_req(@$value['template'],'promo1-left').'></div>';
+
+        echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="one-third1" '.check_req(@$value['template'],'one-third1').'></div>';
+
+        echo '<label for="wpmaterialdesign_template_part_field" style="line-height:30px"><b>';
+		_e( 'Template display properties', 'wpmaterialdesign_textdomain' );
+		echo '</b></label><br/> ';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove title</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_title]" value="true" '.check_req(@$value['properties']['remove_title'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove link from title</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_link_title]" value="true" '.check_req(@$value['properties']['remove_link_title'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove excerpt</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_excerpt]" value="true" '.check_req(@$value['properties']['remove_excerpt'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove date</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_date]" value="true" '.check_req(@$value['properties']['remove_date'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove categories</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_categories]" value="true" '.check_req(@$value['properties']['remove_categories'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove tags</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_tags]" value="true" '.check_req(@$value['properties']['remove_tags'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove read more</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_read_more]" value="true" '.check_req(@$value['properties']['remove_read_more'],'true').'></div>';
+
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove decorator</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_decorator]" value="true" '.check_req(@$value['properties']['remove_decorator'],'true').'></div>';
 	}
 }
