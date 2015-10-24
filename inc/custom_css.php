@@ -8,6 +8,15 @@
 	if(@$d['horizontal_margins']==NULL){
 		@$d['horizontal_margins'] = 40;
 	}
+	if(@$d['color_scheme']==NULL){
+		$d['color_scheme'] = 'color_schema_gray_blue';
+	}
+	if(@$d['header_nav_align']==NULL){
+		$d['header_nav_align'] = 'center';
+	}
+	if(@$d['header_branding_align']==NULL){
+		$d['header_branding_align'] = '1';
+	}
 
 	$colors = array(
 		'color_schema_indigo'=> array(
