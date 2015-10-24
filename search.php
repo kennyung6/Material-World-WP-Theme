@@ -7,7 +7,15 @@
 
 get_header(); ?>
 
-	<section id="primary" class="content-area">
+	<div id="sidebar-left">		
+	<?php if ( is_active_sidebar( 'left-sidebar' ) ) :  ?>
+			<ul id="sidebar">
+				<?php dynamic_sidebar( 'left-sidebar' ); ?>
+			</ul>
+	<?php endif; ?>
+	</div>
+
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
@@ -25,7 +33,14 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'content', 'search' );
+				/*	
+				$template = $wpmaterialdesign_theme_settings['loop_template_part'];
+				$template_meta = get_post_meta($post->ID, '_wpmaterialdesign_template_part_key' ,true);
+				$template_meta = (array)$template_meta;
+				if( @$template_meta['template'] != ''){
+					$template = 'tpl-'.$template_meta['template'];
+				}*/						
+				get_template_part( 'layouts/content' , get_post_format() );
 				?>
 
 			<?php endwhile; ?>
@@ -39,7 +54,7 @@ get_header(); ?>
 		<?php endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
+
 <?php get_footer(); ?>

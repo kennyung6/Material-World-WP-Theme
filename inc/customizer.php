@@ -114,19 +114,6 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 	));
 	
 	/* ---------------------------------------------------- */
-	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[tiled_margins]', array(
-		'default'		=>	0,
-		'type'			=>	'option',
-		'capability'	=>	'edit_theme_options',
-	));
-	$wp_customize->add_control( 'wpmaterialdesign_tiled_margins', array(
-		'label'		=>	__( 'Tiled margins', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_extra_options',
-		'settings'	=>	'wpmaterialdesign_theme_options[tiled_margins]',
-		'type'		=>	'checkbox',
-	));
-
-	/* ---------------------------------------------------- */
 	/* HEADER												*/
 	/* ---------------------------------------------------- */
 
@@ -270,7 +257,62 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 	/* CONTENT											*/
 	/* ---------------------------------------------------- */
 
+	
 	/* ---------------------------------------------------- */
+
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[loop_template_part]', array(
+		'default'		=>	'content',
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_select_template', array(
+		'label'		=>	__( 'Template part (with loop)', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_template_parts',
+		'settings'	=>	'wpmaterialdesign_theme_options[loop_template_part]',
+		'type'		=>	'radio',
+		'choices'	=>	array(
+			'content'	=>	'Original content',
+			'tpl-row'	=>	'Template row',
+			
+		),
+	));	
+
+	/* ---------------------------------------------------- */
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[tiled_margins]', array(
+		'default'		=>	0,
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_tiled_margins', array(
+		'label'		=>	__( 'Template part box', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_template_parts',
+		'settings'	=>	'wpmaterialdesign_theme_options[tiled_margins]',
+		'type'		=>	'checkbox',
+	));
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[template-part-box-margins]', array(
+		'default'		=>	0,
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_template-part-box-margins', array(
+		'label'		=>	__( 'Template part margins', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_template_parts',
+		'settings'	=>	'wpmaterialdesign_theme_options[template-part-box-margins]',
+		'type'		=>	'range',
+		'input_attrs' => array(
+	        'min'   => 0,
+	        'max'   => 10,
+	        'step'  => 0.05,
+	        'class' => 'test-class test',
+	        'style' => 'color: #0a0; width:100%',
+	    ),
+	));
+
+	/* Left sidebar */
+	/* ---------------------------------------------------- */
+
 	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[left-sidebar-percentage]', array(
 		'default'		=>	0,
 		'type'			=>	'option',
@@ -291,24 +333,6 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 	));
 	/* ---------------------------------------------------- */
 
-	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[loop_template_part]', array(
-		'default'		=>	'content',
-		'type'			=>	'option',
-		'capability'	=>	'edit_theme_options',
-	));
-	$wp_customize->add_control( 'wpmaterialdesign_select_template', array(
-		'label'		=>	__( 'Color Scheme', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_template_parts',
-		'settings'	=>	'wpmaterialdesign_theme_options[loop_template_part]',
-		'type'		=>	'radio',
-		'choices'	=>	array(
-			'content'	=>	'Original content',
-			'tpl-row'	=>	'Template row',
-			
-		),
-	));	
-
-	/* ---------------------------------------------------- */
 	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[sidebar_left_align]', array(
 		'default'		=>	0,
 		'type'			=>	'option',
@@ -320,6 +344,8 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 		'settings'	=>	'wpmaterialdesign_theme_options[sidebar_left_align]',
 		'type'		=>	'checkbox',
 	));
+
+
 
 
 }

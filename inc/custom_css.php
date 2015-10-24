@@ -240,6 +240,45 @@ article, .tpl-table-row , footer .site-info{
 	width: <?php echo @(100-$d['left-sidebar-percentage']); ?>%;	
 }
 
+/* post-wraper margins */
+<?php if( ( @$d['template-part-box-margins'] != 0 ) && ( @$d['template-part-box-margins'] != NULL ) ){ 
+	
+	$x = $d['template-part-box-margins'];
+	?>
+	.post-wraper{
+		margin-top: <?php echo ($x); ?>%;
+	}
+
+	.tpl-content{
+		margin-left: <?php echo ($x*2); ?>%; 
+		margin-right: <?php echo ($x*2); ?>%; 
+	}
+
+	.tpl-promo1{
+		
+	}
+
+	.tpl-promo1 .image-side{
+		width: <?php echo (66.666666)-($x*3); ?>%;
+		margin-left: <?php echo ($x*2); ?>%; 
+		margin-right: <?php echo ($x); ?>%;
+	}	
+
+	.tpl-promo1 .content-side{
+		width: <?php echo (33.333333)-($x*2); ?>%;
+		margin-right: <?php echo ($x*2); ?>%; 
+	}	
+
+	.tpl-three{
+		width: <?php echo (33.333333) - (($x*2)/3)*3; ?>%;
+		margin-right: <?php echo ($x); ?>%; 
+	}
+	.tpl-three.first-tpl-child {
+		margin-left: <?php echo ($x*2); ?>%; 
+	}	
+	
+<?php } ?>
+
 /* LEFT SIDEBAR ANIMATIONS */ 
 /* move left */
 #sidebar-left.sidebar-close{
@@ -247,4 +286,6 @@ article, .tpl-table-row , footer .site-info{
 	cursor:pointer;
 	opacity:0;
 }
+
+
 </style>

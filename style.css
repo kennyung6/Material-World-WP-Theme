@@ -229,6 +229,10 @@ footer .site-info{
 .tag-link-21, .tag-link-20{
 	font-size:13px !important;
 }
+/* search */
+.widget_search form{
+	margin-top: 15px;
+}
 
 /*-------------------------------------------------------------- */
 /* animations */
@@ -500,16 +504,16 @@ img[class*="wp-image-"],
 	margin-top:10px;
 }
 
-/* promo1 */
-.promo1{
+/* tpl-promo1 */
+.tpl-promo1{
 	height: 100%; display: table; width: 100%;
 }
-.promo1 .image-side{
+.tpl-promo1 .image-side{
 	background-size: cover; display: table-cell;height: 100%;
 }
-.promo1 .top-article-decorator{
+.tpl-promo1 .top-article-decorator{
 	height:60px
 }
-.promo1 .entry-title{
+.tpl-promo1 .entry-title{
 	font-size:22px
 }

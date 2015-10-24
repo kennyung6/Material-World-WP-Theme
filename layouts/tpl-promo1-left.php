@@ -3,11 +3,15 @@
  * @package wpmaterialdesign
  */
 ?>
-<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-<div class="post-wraper row promo1">
-	<div class="col-md-8 image-side" style="background-image:url(<?php echo $url; ?>);">
+<?php
+ $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+ global $template_meta;
+ $first = $template_meta['first'];
+?>
+<div class="post-wraper row tpl-promo1 <?php echo $first; ?>">
+	<div class="col-md-8 image-side underline" style="background-image:url(<?php echo $url; ?>);">
 	</div>
-	<div class="col-md-4 content-side">
+	<div class="col-md-4 content-side bg underline">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<div class="top-article-decorator"></div>
 		<header class="entry-header">

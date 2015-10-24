@@ -124,7 +124,7 @@ class someClass {
 		//echo '<input type="text" id="wpmaterialdesign_template_part_field" name="wpmaterialdesign_template_part_field"';
         //echo ' value="' . esc_attr( $value ) . '" size="25" />';
 
-       echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="promo1-left" '.check_req(@$value['template'],'promo1-left').'></div>';
+		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Promo1 left</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="promo1-left" '.check_req(@$value['template'],'promo1-left').'></div>';
 
         echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="one-third1" '.check_req(@$value['template'],'one-third1').'></div>';
 

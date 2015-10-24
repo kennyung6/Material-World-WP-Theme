@@ -3,13 +3,16 @@
  * @package wpmaterialdesign
  */
 ?>
-<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
-<div class="post-wraper col-md-4"  >
+<?php
+ $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+ global $template_meta;
+ $first = $template_meta['first'];
+?>
+<div class="post-wraper col-md-4 tpl-three bg underline <?php echo $first; ?>"  >
 	<div style="position:absolute; width:100%; height:200px; background:url(<?php echo $url; ?>); background-size: cover; margin:0px -15px">&nbsp;</div>
 	<div style="height:200px"></div>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<?php 
-			global $template_meta;
 			if (@$template_meta['properties']['remove_decorator'] != true){ 
 				?>
 					<div class="top-article-decorator" style="height:30px"></div>

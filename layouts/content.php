@@ -3,15 +3,19 @@
  * @package wpmaterialdesign
  */
 ?>
-<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+<?php
+ $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); 
+ global $template_meta;
+ $first = $template_meta['first'];
+?>
 <div class="row" ></div>
-<div class="post-wraper row" style="background-image:url(<?php echo $url; ?>); background-size: cover;"; >
+<div class="post-wraper row tpl-content bg underline <?php echo $first; ?>" style="background-image:url(<?php echo $url; ?>); background-size: cover;"; >
 	
 	<div class="col-md-12" style="background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAE0lEQVQIW2P8////ZgYgYIQyfABSfQevbIAjrwAAAABJRU5ErkJggg==) repeat;">
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		
 		<?php 
-			global $template_meta;
+			
 			if (@$template_meta['properties']['remove_decorator'] != true){ 
 				?>
 					<div class="top-article-decorator"></div>

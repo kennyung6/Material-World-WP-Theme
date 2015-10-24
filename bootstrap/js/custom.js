@@ -78,8 +78,6 @@
        }
   });
 
-  $('#wp-calendar').addClass('table table-responsive table-striped');
-
   /* init left sidebar storage stage */
   if(sessionStorage.left_sidebar_stage == null){
     sessionStorage.left_sidebar_stage = 0;
@@ -183,6 +181,11 @@ function sidebar_swipe_left(el,d){
 }
 detectswipe('sidebar-left',sidebar_swipe_left);
 
+  /* FIXED SOME COMPONENTS TO MATERIAL DESIGN THEME */
+  
+  $('.search-field').addClass('form-control');
+  $('.search-submit').addClass('btn');
+  $('#wp-calendar').addClass('table table-responsive table-striped');
 })(jQuery);
 /* sticky header */
 
