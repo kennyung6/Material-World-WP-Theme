@@ -50,7 +50,7 @@
           $('.site-branding').css({'margin-top': '10px','margin-bottom': '8px','opacity':'0'});
           
           $("#masthead").animate({
-            height: masthead_height
+            height: masthead_height-20
             }, 250);
           $('.site-branding').fadeTo('slow',1);
 

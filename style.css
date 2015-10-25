@@ -473,8 +473,18 @@ img[class*="wp-image-"],
 	.page .entry-content, .single .entry-content{
 		padding:10px 10px !important;
 	}
-	.image-side{
-		display:none !important;
+
+	.post-wraper{
+		margin-top: 0 !important;
+		overflow: hidden;
+	}
+	.tpl-promo1 .image-side{
+		display: none !important;
+	}
+	.tpl-promo1 .content-side, .tpl-content, .tpl-three{
+		width: 100% !important;
+		margin-left: 0 !important;
+		margin-right: 0 !important;
 	}
 
 }

@@ -39,7 +39,7 @@
 			<?php if ( have_posts() ) : ?>			
 
 				<?php /* Start the Loop */ ?>
-				<?php $last_tpl = NULL; ?>
+				<?php $last_tpl = NULL; $uniq_counter = 0; ?>
 				<?php while ( have_posts() ) : the_post(); ?>
 					<?php
 						/* Include the Post-Format-specific template for the content.
@@ -53,12 +53,15 @@
 							$template = 'tpl-'.$template_meta['template'];
 						}
 						if($last_tpl != $template){
-							$template_meta['first'] = 'first-tpl-child';
+							$template_meta['first'] = 'first-tpl-child';							
+							$uniq_counter = 0;
 						}
+						$template_meta['uniq_counter'] = $uniq_counter;
 
 						get_template_part( 'layouts/'.$template , get_post_format() );
 
 						$last_tpl = $template;
+						$uniq_counter ++;
 					?>
 				<?php endwhile; ?>
 
