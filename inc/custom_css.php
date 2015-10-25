@@ -156,7 +156,7 @@ a:hover, .page-numbers{
 $output = 'padding-left: '.$d['horizontal_margins'].'px;';
 $output .= 'padding-right: '.$d['horizontal_margins'].'px;';
 ?> 
-.widget .widget-title, .widget ul, .page-header .page-title, .page-header .taxonomy-description, .site-branding, .tagcloud
+.widget .widget-title, .widget ul, .page-header .page-title, .page-header .taxonomy-description, .site-branding, .tagcloud,  .widget_search
 	{
 	<?php
 		if(	@$d['horizontal_margins'] != 0	){

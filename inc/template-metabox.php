@@ -118,15 +118,21 @@ class someClass {
 		}
 
 		// Display the form, using the current value.
+		echo '<div style="float:left; width:45%">';
 		echo '<label for="wpmaterialdesign_template_part_field" style="line-height:30px"><b>';
 		_e( 'Select template', 'wpmaterialdesign_textdomain' );
 		echo '</b></label><br/> ';
 		//echo '<input type="text" id="wpmaterialdesign_template_part_field" name="wpmaterialdesign_template_part_field"';
         //echo ' value="' . esc_attr( $value ) . '" size="25" />';
+        echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Original content</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="" '.check_req(@$value['template'],'').'></div>';
 
 		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Promo1 left</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="promo1-left" '.check_req(@$value['template'],'promo1-left').'></div>';
 
         echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">Column1 one/third</label><input type="radio" name="wpmaterialdesign_template_part_field[template]" value="one-third1" '.check_req(@$value['template'],'one-third1').'></div>';
+
+		echo '</div>';
+
+		echo '<div style="float:left; width:45%">';
 
         echo '<label for="wpmaterialdesign_template_part_field" style="line-height:30px"><b>';
 		_e( 'Template display properties', 'wpmaterialdesign_textdomain' );
@@ -147,5 +153,10 @@ class someClass {
 		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove read more</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_read_more]" value="true" '.check_req(@$value['properties']['remove_read_more'],'true').'></div>';
 
 		echo '<div style="margin-bottom:5px"><label style="width:150px; display:block; float:left; ">remove decorator</label><input type="checkbox" name="wpmaterialdesign_template_part_field[properties][remove_decorator]" value="true" '.check_req(@$value['properties']['remove_decorator'],'true').'></div>';
+	
+		echo '</div>';
+
+		echo '<br style="clear:both">';
+
 	}
 }

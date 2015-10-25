@@ -267,6 +267,8 @@ function wpmaterialdesign_read_more() {
 endif;
 
 
+
+
 /**
  * Flush out the transients used in wpmaterialdesign_categorized_blog.
  */

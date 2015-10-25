@@ -52,6 +52,10 @@
 						if( @$template_meta['template'] != ''){
 							$template = 'tpl-'.$template_meta['template'];
 						}
+/*						if( @$template_meta['template'] == 'content'){
+							$template = $template_meta['template'];
+						}*/
+						
 						if($last_tpl != $template){
 							$template_meta['first'] = 'first-tpl-child';							
 							$uniq_counter = 0;
