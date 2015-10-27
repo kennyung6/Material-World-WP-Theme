@@ -32,7 +32,7 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 		global $post;
 		var_dump(get_post_custom_keys($post->ID));
 		return $meta_values;
-		
+
 	}
 
 	
@@ -53,6 +53,11 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( 'wpmaterialdesign_template_parts', array(
 		'title'		=>	__( '[MW] Theme content', 'wpmaterialdesign' ),
+		'priority'	=>	35,
+	));
+
+	$wp_customize->add_section( 'wpmaterialdesign_footer', array(
+		'title'		=>	__( '[MW] Theme footer', 'wpmaterialdesign' ),
 		'priority'	=>	35,
 	));
 
@@ -409,6 +414,70 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 		'type'		=>	'select',
     	'choices' => get_categories_select()
 	));	
+
+
+	/* ---------------------------------------------------- */
+	/* Footer											*/
+	/* ---------------------------------------------------- */
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[footer_description_first]', array(
+		'default'		=>	'content',
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_footer_description_first', array(
+		'label'		=>	__( 'Footer description', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_footer',
+		'settings'	=>	'wpmaterialdesign_theme_options[footer_description_first]'		
+	));	
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[footer_description_second]', array(
+		'default'		=>	'content',
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_footer_description_second', array(
+		'label'		=>	__( 'Footer description', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_footer',
+		'settings'	=>	'wpmaterialdesign_theme_options[footer_description_second]'		
+	));	
+	/* ---------------------------------------------------- */
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[footer_align]', array(
+		'default'		=>	'left',
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'footer_align', array(
+		'label'		=>	__( 'Footer text align', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_footer',
+		'settings'	=>	'wpmaterialdesign_theme_options[footer_align]',
+		'type'		=>	'radio',
+		'choices'	=>	array(
+			'left'		=>	'Left',
+			'center'	=>	'Center',
+			'right'		=>	'Right',
+		),
+	));
+	/* ---------------------------------------------------- */
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[footer_top_margin]', array(
+		'default'		=>	0,
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_footer_top_margin', array(
+		'label'		=>	__( 'Footer top margin', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_footer',
+		'settings'	=>	'wpmaterialdesign_theme_options[footer_top_margin]',
+		'type'		=>	'range',
+		'input_attrs' => array(
+	        'min'   => 0,
+	        'max'   => 80,
+	        'step'  => 5,
+	        'class' => 'test-class test',
+	        'style' => 'color: #0a0; width:100%',
+	    ),
+	));
 
 
 

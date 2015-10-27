@@ -290,4 +290,19 @@ article, .tpl-table-row , footer .site-info{
 }
 
 
+/* FOOTER */
+.site-footer{	
+	<?php
+	if(@$d['footer_top_margin']!=NULL){
+		?>margin-top:<?php echo @$d['footer_top_margin']; ?>px; <?php
+	}
+	?>
+	<?php
+	if(@$d['footer_align']!=NULL){
+		?>text-align:<?php echo @$d['footer_align']; ?>; <?php
+	}
+	?>
+}
+
+
 </style>
