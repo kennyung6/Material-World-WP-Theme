@@ -5,12 +5,36 @@
  * @package wpmaterialdesign
  */
 
+
+
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function wpmaterialdesign_customize_register( $wp_customize ) {
+
+	function get_categories_select() {
+	 $teh_cats = get_categories();
+	    $results;
+	    $count = count($teh_cats);
+	    for ($i=0; $i < $count; $i++) {
+	      if (isset($teh_cats[$i]))
+	        $results[$teh_cats[$i]->slug] = $teh_cats[$i]->name;
+	      else
+	        $count++;
+	    }
+	  return $results;
+	}
+
+	function get_metas_keys() {
+		
+		global $post;
+		var_dump(get_post_custom_keys($post->ID));
+		return $meta_values;
+		
+	}
+
 	
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -38,17 +62,41 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 	/* EXTRA OPTIONS										*/
 	/* ---------------------------------------------------- */
 
-	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[site_margins]', array(
+	/* Site Identity    									*/
+	/* ---------------------------------------------------- */
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[header_branding_letter_spacing]', array(
 		'default'		=>	0,
 		'type'			=>	'option',
 		'capability'	=>	'edit_theme_options',
 	));
-	$wp_customize->add_control( 'wpmaterialdesign_site_margins', array(
-		'label'		=>	__( 'Global margins (container)', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_extra_options',
-		'settings'	=>	'wpmaterialdesign_theme_options[site_margins]',
+	$wp_customize->add_control( 'wpmaterialdesign_header_branding_letter_spacing', array(
+		'label'		=>	__( 'Branding letters spacing', 'wpmaterialdesign' ),
+		'section'	=>	'title_tagline',
+		'settings'	=>	'wpmaterialdesign_theme_options[header_branding_letter_spacing]',
+		'type'		=>	'range',
+		'input_attrs' => array(
+	        'min'   => 0,
+	        'max'   => 5,
+	        'step'  => 0.1,
+	        'class' => 'test-class test',
+	        'style' => 'color: #0a0; width:100%',
+	    ),
+	));
+	/* ---------------------------------------------------- */
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[header_branding_align]', array(
+		'default'		=>	0,
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'header_branding_align', array(
+		'label'		=>	__( 'Branding align left/center', 'wpmaterialdesign' ),
+		'section'	=>	'title_tagline',
+		'settings'	=>	'wpmaterialdesign_theme_options[header_branding_align]',
 		'type'		=>	'checkbox',
 	));
+
+
+	/* Colors 	        									*/
 	/* ---------------------------------------------------- */
 	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[color_scheme]', array(
 		'default'		=>	'color_schema_teal',
@@ -57,7 +105,7 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 	));
 	$wp_customize->add_control( 'color_scheme', array(
 		'label'		=>	__( 'Color Scheme', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_extra_options',
+		'section'	=>	'colors',
 		'settings'	=>	'wpmaterialdesign_theme_options[color_scheme]',
 		'type'		=>	'radio',
 		'choices'	=>	array(
@@ -69,6 +117,24 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 			'color_schema_brown'		=>	'Brown',
 		),
 	));
+	/* ---------------------------------------------------- */
+
+
+
+
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[site_margins]', array(
+		'default'		=>	0,
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_site_margins', array(
+		'label'		=>	__( 'Global margins (container)', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_extra_options',
+		'settings'	=>	'wpmaterialdesign_theme_options[site_margins]',
+		'type'		=>	'checkbox',
+	));
+	
 	/* ---------------------------------------------------- */
 	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[horizontal_margins]', array(
 		'default'		=>	35,
@@ -119,36 +185,8 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 
 	/* ---------------------------------------------------- */
 
-	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[header_branding_align]', array(
-		'default'		=>	0,
-		'type'			=>	'option',
-		'capability'	=>	'edit_theme_options',
-	));
-	$wp_customize->add_control( 'header_branding_align', array(
-		'label'		=>	__( 'Branding align left/center', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_template_header',
-		'settings'	=>	'wpmaterialdesign_theme_options[header_branding_align]',
-		'type'		=>	'checkbox',
-	));
-	/* ---------------------------------------------------- */
-	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[header_branding_letter_spacing]', array(
-		'default'		=>	0,
-		'type'			=>	'option',
-		'capability'	=>	'edit_theme_options',
-	));
-	$wp_customize->add_control( 'wpmaterialdesign_header_branding_letter_spacing', array(
-		'label'		=>	__( 'Branding letters spacing', 'wpmaterialdesign' ),
-		'section'	=>	'wpmaterialdesign_template_header',
-		'settings'	=>	'wpmaterialdesign_theme_options[header_branding_letter_spacing]',
-		'type'		=>	'range',
-		'input_attrs' => array(
-	        'min'   => 0,
-	        'max'   => 5,
-	        'step'  => 0.1,
-	        'class' => 'test-class test',
-	        'style' => 'color: #0a0; width:100%',
-	    ),
-	));
+	
+	
 
 	/* NAVBAR */
 	/* ---------------------------------------------------- */
@@ -270,10 +308,12 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 		'label'		=>	__( 'Template part (with loop)', 'wpmaterialdesign' ),
 		'section'	=>	'wpmaterialdesign_template_parts',
 		'settings'	=>	'wpmaterialdesign_theme_options[loop_template_part]',
-		'type'		=>	'radio',
+		'type'		=>	'select',
 		'choices'	=>	array(
 			'content'	=>	'Original content',
 			'tpl-row'	=>	'Template row',
+			'tpl-promo1-left'	=>	'Tpl Promo1 left',
+			'tpl-one-third1'	=>	'Tpl third column 1',
 			
 		),
 	));	
@@ -345,6 +385,31 @@ function wpmaterialdesign_customize_register( $wp_customize ) {
 		'type'		=>	'checkbox',
 	));
 
+	/* ---------------------------------------------------- */
+//global $post;
+
+//var_dump(is_main_query());
+
+//global $wp_query;
+//var_dump($wp_query);
+
+
+
+//var_dump(get_post_custom_keys($post->ID));
+
+	$wp_customize->add_setting( 'wpmaterialdesign_theme_options[template_part_mata1_key]', array(
+		'default'		=>	'content',
+		'type'			=>	'option',
+		'capability'	=>	'edit_theme_options',
+	));
+	$wp_customize->add_control( 'wpmaterialdesign_template_part_mata1_key', array(
+		'label'		=>	__( 'Template part meta1 key', 'wpmaterialdesign' ),
+		'section'	=>	'wpmaterialdesign_template_parts',
+		'settings'	=>	'wpmaterialdesign_theme_options[template_part_mata1_key]',
+		'type'		=>	'select',
+    	'choices' => get_categories_select()
+	));	
+
 
 
 
@@ -358,3 +423,5 @@ function wpmaterialdesign_customize_preview_js() {
 	wp_enqueue_script( 'wpmaterialdesign_customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20130508', true );
 }
 add_action( 'customize_preview_init', 'wpmaterialdesign_customize_preview_js' );
+
+
