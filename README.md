@@ -19,7 +19,7 @@ Install theme, go to wordpress customizer and have fun!!!
 Online demo
 ---------------
 
-http://wpbca.com/work-portal-basic/
+http://materialworldtheme.com/
 
 
 Customize / MultiPurpose
